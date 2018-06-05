@@ -10,19 +10,19 @@ from movierater.api.models import Movie, Rating
 from rest_framework.decorators import list_route
 
 class UserViewSet(viewsets.ModelViewSet):
-   
+
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
 class MovieViewSet(viewsets.ModelViewSet):
-   
+
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    authentication_classes = (TokenAuthentication, SessionAuthentication)
-    permission_classes = (IsAuthenticated,)
-    
+    #authentication_classes = (TokenAuthentication, SessionAuthentication)
+    #permission_classes = (IsAuthenticated,)
+
 class RatingViewSet(viewsets.ModelViewSet):
-   
+
     queryset = Rating.objects.all()
     serializer_class = RatingSerializer
     authentication_classes = (TokenAuthentication, SessionAuthentication)
